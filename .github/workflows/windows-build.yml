@@ -1,0 +1,44 @@
+ame: Build For Windows
+
+on: [push]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  windows:
+    name: Windows-ClangCL-32bit
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: Add LLVM to PATH
+        run: |
+          echo "C:\Program Files\LLVM\bin" >> $GITHUB_PATH
+        shell: bash
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+        with:
+          vs-version: 'latest'
+
+      - name: Fix Missing unistd.h for Clang-CL
+        run: |
+          echo "" > project/unistd.h
+        shell: bash
+
+      - name: Build Project (Release)
+        run: |
+          cd project
+          msbuild ebot.vcxproj /p:Configuration=EBOT_Release /p:Platform=Win32 /p:PlatformToolset=ClangCL /p:PrecompiledHeader=NotUsing /t:Clean,Build /m
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ebot-windows
+          path: project/ebot_release/ebot.dll
