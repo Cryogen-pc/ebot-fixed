@@ -1,0 +1,55 @@
+// objdump -T ebot.so | grep GLIBC_
+// to see glibc versions if its correct
+#ifndef WIN32
+#define _FORTIFY_SOURCE 0
+#define D__NO_ISOC23__
+__asm__(".symver fputs,fputs@GLIBC_2.0");
+__asm__(".symver abort,abort@GLIBC_2.0");
+__asm__(".symver sprintf,sprintf@GLIBC_2.0");
+__asm__(".symver mkdir,mkdir@GLIBC_2.0");
+__asm__(".symver memcmp,memcmp@GLIBC_2.0");
+__asm__(".symver realloc,realloc@GLIBC_2.0");
+__asm__(".symver vsprintf,vsprintf@GLIBC_2.0");
+__asm__(".symver localtime,localtime@GLIBC_2.0");
+__asm__(".symver strchr,strchr@GLIBC_2.0");
+__asm__(".symver vsnprintf,vsnprintf@GLIBC_2.0");
+__asm__(".symver system,system@GLIBC_2.0");
+__asm__(".symver fgets,fgets@GLIBC_2.0");
+__asm__(".symver gettext,gettext@GLIBC_2.0");
+__asm__(".symver strerror_r,strerror_r@GLIBC_2.0");
+__asm__(".symver free,free@GLIBC_2.0");
+__asm__(".symver fseek,fseek@GLIBC_2.0");
+__asm__(".symver fclose,fclose@GLIBC_2.0");
+__asm__(".symver stderr,stderr@GLIBC_2.0");
+__asm__(".symver fopen,fopen@GLIBC_2.0");
+__asm__(".symver unlink,unlink@GLIBC_2.0");
+__asm__(".symver fgetc,fgetc@GLIBC_2.0");
+__asm__(".symver ftell,ftell@GLIBC_2.0");
+__asm__(".symver printf,printf@GLIBC_2.0");
+__asm__(".symver fwrite,fwrite@GLIBC_2.0");
+__asm__(".symver time,time@GLIBC_2.0");
+__asm__(".symver malloc,malloc@GLIBC_2.0");
+__asm__(".symver fputc,fputc@GLIBC_2.0");
+__asm__(".symver vfprintf,vfprintf@GLIBC_2.0");
+__asm__(".symver fread,fread@GLIBC_2.0");
+__asm__(".symver strftime,strftime@GLIBC_2.0");
+__asm__(".symver snprintf,snprintf@GLIBC_2.0");
+__asm__(".symver pthread_mutex_trylock,pthread_mutex_trylock@GLIBC_2.0");
+__asm__(".symver pthread_detach,pthread_detach@GLIBC_2.0");
+__asm__(".symver pthread_create,pthread_create@GLIBC_2.0");
+__asm__(".symver pthread_join,pthread_join@GLIBC_2.0");
+__asm__(".symver memcpy,memcpy@GLIBC_2.0");
+__asm__(".symver memset,memset@GLIBC_2.0");
+__asm__(".symver rand,rand@GLIBC_2.0");
+__asm__(".symver gettimeofday,gettimeofday@GLIBC_2.0");
+__asm__(".symver sendto,sendto@GLIBC_2.0");
+__asm__(".symver sendmsg,sendmsg@GLIBC_2.0");
+__asm__(".symver pthread_mutex_lock,pthread_mutex_lock@GLIBC_2.0");
+__asm__(".symver pthread_mutex_unlock,pthread_mutex_unlock@GLIBC_2.0");
+__asm__(".symver mprotect,mprotect@GLIBC_2.0");
+__asm__(".symver sysconf,sysconf@GLIBC_2.0");
+__asm__(".symver __errno_location,__errno_location@GLIBC_2.0");
+__asm__(".symver ___tls_get_addr,___tls_get_addr@GLIBC_2.3");
+__asm__(".symver __cxa_atexit,__cxa_atexit@GLIBC_2.1.3");
+__asm__(".symver __cxa_finalize,__cxa_finalize@GLIBC_2.1.3");
+#endif
